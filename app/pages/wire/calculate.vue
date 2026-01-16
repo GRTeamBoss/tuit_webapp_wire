@@ -136,25 +136,27 @@ const cables = ref([
     ],
   },
 ]);
-const cableDesc = `type: ${
-  cables.value[0][categoryDefault.value].filter((cable) => {
-    if (cable.name === cableDefault.value) {
-      return cable;
-    }
-  })[0].type
-} - distance: ${
-  cables.value[0][categoryDefault.value].filter((cable) => {
-    if (cable.name === cableDefault.value) {
-      return cable;
-    }
-  })[0].distance
-} - speed: ${
-  cables.value[0][categoryDefault.value].filter((cable) => {
-    if (cable.name === cableDefault.value) {
-      return cable;
-    }
-  })[0].speed
-}`;
+const cableDesc = ref(
+  `type: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].type
+  } - distance: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].distance
+  } - speed: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].speed
+  }`
+);
 
 const changeCables = (category: string) => {
   cableDefault.value = cables.value[0][category][0].name;
@@ -162,5 +164,24 @@ const changeCables = (category: string) => {
   cables.value[0][category].forEach((cable) => {
     cablesByCategory.value.push(cable.name);
   });
+  cableDesc.value = `type: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].type
+  } - distance: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].distance
+  } - speed: ${
+    cables.value[0][categoryDefault.value].filter((cable) => {
+      if (cable.name === cableDefault.value) {
+        return cable;
+      }
+    })[0].speed
+  }`;
 };
 </script>
